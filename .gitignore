@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+
+# Poetry
+.venv/
+
+# Environment variables
+*.env
+
+# macOS
+.DS_Store
+
+# Type checker/test cache
+.mypy_cache/
+.pytest_cache/
+
+# Editor settings
+.vscode/
+.idea/
