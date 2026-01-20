@@ -1,16 +1,20 @@
 # FastAPI REST API server for OCI MCP
 from fastapi import FastAPI
+
 import oci
 import os
+from dotenv import load_dotenv
 
 app = FastAPI()
+
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Reads OCI config from ~/.oci/config
 OCI_CONFIG_PATH = os.path.expanduser("~/.oci/config")
 OCI_PROFILE = os.getenv("OCI_PROFILE", "DEFAULT")
-# COMPARTMENT_OCID = os.getenv("OCI_COMPARTMENT_OCID")
-
-COMPARTMENT_OCID = "ocid1.compartment.oc1..aaaaaaaauhgedaw4ieu4fdnuud5tpnrbv32qsp7ipvboqxkhklkk3xmhg23a"
+COMPARTMENT_OCID = os.getenv("OCI_COMPARTMENT_OCID")
 
 def get_oci_clients():
     config = oci.config.from_file(OCI_CONFIG_PATH, OCI_PROFILE)
